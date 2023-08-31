@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TipoMateriaPrima extends Model
+class CaracteristicaMateria extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre',
+        'id_caracteristica',
+        'id_materiaprima',
     ];
-    public function materiaPrima(){
-        return $this->belogsTo(MateriaPrima::class);
-    }
 }

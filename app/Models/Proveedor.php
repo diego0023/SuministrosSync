@@ -14,4 +14,7 @@ class Proveedor extends Model
         'telefono',
         'direccion',
     ];
+    public function materiaPrima(){
+        return $this->belogsTo(MateriaPrima::class);
+    }
 }

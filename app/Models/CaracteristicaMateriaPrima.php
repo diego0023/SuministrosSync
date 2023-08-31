@@ -13,4 +13,7 @@ class CaracteristicaMateriaPrima extends Model
         'valor_min',
         'valor_max',
     ];
+    protected function materiaprimas(){
+        return $this->belongsToMany(MateriaPrima::class, 'caracteristica_materias');
+    }
 }
