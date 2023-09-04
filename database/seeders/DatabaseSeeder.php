@@ -18,5 +18,30 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        \App\Models\TipoMateriaPrima::create([
+            'nombre' => 'embalaje',
+        ]);
+
+
+        \App\Models\TipoMateriaPrima::create([
+            'nombre' => 'perecedero',
+        ]);
+
+        \App\Models\Proveedor::create([
+            'nombre'    => 'proveedor1',
+            'nit'       => '123456789',
+            'telefono'  => '87654321',
+            'direccion' =>  'calle 6 zona 9',
+        ]);
+
+        \App\Models\Proveedor::create([
+            'nombre'    => 'proveedor2',
+            'nit'       => '123456789',
+            'telefono'  => '87654321',
+            'direccion' =>  'calle 6 zona 9',
+        ]);
+
+
     }
 }
