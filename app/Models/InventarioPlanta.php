@@ -12,7 +12,7 @@ class InventarioPlanta extends Model
         'id_materia_prima',
         'cantidad',
     ];
-    public function materiaprimas(){
-        return $this->belongsTo(MateriaPrima::class);
+    public function materiaprima(){
+        return $this->belongsTo(MateriaPrima::class, 'id_materia_prima');
     }
 }

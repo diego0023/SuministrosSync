@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InventarioPlantaResource\Pages;
-use App\Filament\Resources\InventarioPlantaResource\RelationManagers;
-use App\Models\InventarioPlanta;
+use App\Filament\Resources\InventarioBodegaResource\Pages;
+use App\Filament\Resources\InventarioBodegaResource\RelationManagers;
+use App\Models\InventarioBodega;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -15,14 +15,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 
-class InventarioPlantaResource extends Resource
+class InventarioBodegaResource extends Resource
 {
-    protected static ?string $model = InventarioPlanta::class;
+    protected static ?string $model = InventarioBodega::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-home';
 
-    protected static ?string $navigationLabel = 'Inventario Planta';
-
+    protected static ?string $navigationLabel = 'Inventario Bodega';
 
     public static function form(Form $form): Form
     {
@@ -41,7 +40,7 @@ class InventarioPlantaResource extends Resource
                     ->label('Materia Prima'),
                 TextColumn::make('cantidad')
                     ->label('Cantidad'),
-                TextColumn::make('Valor')
+                TextColumn::make('valor')
                     ->label('Valor (Q)')
                     ->getStateUsing(function (Model $record): float {
                     return $record->cantidad * ($record->materiaprima->precio_unidad);
@@ -51,8 +50,8 @@ class InventarioPlantaResource extends Resource
                 //
             ])
             ->actions([
-               // Tables\Actions\EditAction::make(),
-               // Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
@@ -62,11 +61,7 @@ class InventarioPlantaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageInventarioPlantas::route('/'),
+            'index' => Pages\ManageInventarioBodegas::route('/'),
         ];
     }
-
-
-
-
 }

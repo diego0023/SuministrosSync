@@ -26,9 +26,9 @@ class MateriaPrima extends Model
         return $this->belongsToMany(CaracteristicaMateriaPrima::class, 'caracteristica_materias');
     }
     public function inventariobodega(){
-        return $this->hasMany(InventarioBodega::class);
+        return $this->hasOne(InventarioPlanta::class);
     }
     public function inventarioplanta(){
-        return $this->hasMany(InventarioPlanta::class);
+        return $this->hasOne(InventarioPlanta::class);
     }
 }

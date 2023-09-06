@@ -12,7 +12,7 @@ class InventarioBodega extends Model
         'id_materia_prima',
         'cantidad',
     ];
-    protected function materiaprimas(){
-        return $this->belongsTo(MateriaPrima::class);
+    public function materiaprima(){
+        return $this->belongsTo(MateriaPrima::class, 'id_materia_prima');
     }
 }
