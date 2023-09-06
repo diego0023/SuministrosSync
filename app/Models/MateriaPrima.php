@@ -30,6 +30,7 @@ class MateriaPrima extends Model
     public function ordenes()
     {
         return $this->hasMany(OrdenAlmacenamiento::class);
+    }
 
     public function inventariobodega(){
         return $this->hasOne(InventarioPlanta::class);
@@ -37,5 +38,5 @@ class MateriaPrima extends Model
     public function inventarioplanta(){
         return $this->hasOne(InventarioPlanta::class);
     }
-      
+
 }

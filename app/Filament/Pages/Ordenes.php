@@ -11,6 +11,7 @@ class Ordenes extends Page
     protected static string $view = 'filament.pages.ordenes';
 
     protected static ?string $navigationLabel = 'Ordenes de Almacenamineto';
+    protected static ?string $navigationGroup = 'Ingresos';
 
 
 }

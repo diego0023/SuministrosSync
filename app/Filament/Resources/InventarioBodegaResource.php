@@ -22,6 +22,7 @@ class InventarioBodegaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-home';
 
     protected static ?string $navigationLabel = 'Inventario Bodega';
+    protected static ?string $navigationGroup = 'Inventarios';
 
     public static function form(Form $form): Form
     {

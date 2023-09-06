@@ -22,6 +22,7 @@ class InventarioPlantaResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-home';
 
     protected static ?string $navigationLabel = 'Inventario Planta';
+    protected static ?string $navigationGroup = 'Inventarios';
 
 
     public static function form(Form $form): Form
