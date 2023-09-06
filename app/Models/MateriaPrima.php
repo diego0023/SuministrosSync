@@ -25,4 +25,9 @@ class MateriaPrima extends Model
     protected function caracteristicas(){
         return $this->belongsToMany(CaracteristicaMateriaPrima::class, 'caracteristica_materias');
     }
+
+    public function ordenes()
+    {
+        return $this->hasMany(OrdenAlmacenamiento::class);
+    }
 }
