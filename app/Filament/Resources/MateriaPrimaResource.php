@@ -27,7 +27,6 @@ class MateriaPrimaResource extends Resource
     protected static ?string $model = MateriaPrima::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-lightning-bolt';
-
     protected static ?string $navigationLabel = 'Materia Prima';
 
     public static function form(Form $form): Form

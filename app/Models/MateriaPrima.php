@@ -22,7 +22,21 @@ class MateriaPrima extends Model
     public function tipos() {
         return $this->hasMany(TipoMateriaPrima::class);
     }
-    protected function caracteristicas(){
+    public function caracteristicas(){
         return $this->belongsToMany(CaracteristicaMateriaPrima::class, 'caracteristica_materias');
     }
+
+
+    public function ordenes()
+    {
+        return $this->hasMany(OrdenAlmacenamiento::class);
+    }
+
+    public function inventariobodega(){
+        return $this->hasOne(InventarioPlanta::class);
+    }
+    public function inventarioplanta(){
+        return $this->hasOne(InventarioPlanta::class);
+    }
+
 }

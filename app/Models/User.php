@@ -46,9 +46,15 @@ class User extends Authenticatable implements FilamentUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
     public function canAccessFilament(): bool
     {
         return str_ends_with($this->email, '@admin.com');
 
+    }
+
+    public function ordenes()
+    {
+        return $this->hasMany(OrdenAlmacenamiento::class);
     }
 }
