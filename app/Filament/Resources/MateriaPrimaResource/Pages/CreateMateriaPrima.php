@@ -5,6 +5,8 @@ namespace App\Filament\Resources\MateriaPrimaResource\Pages;
 use App\Filament\Resources\MateriaPrimaResource;
 use App\Models\CaracteristicaMateria;
 use App\Models\CaracteristicaMateriaPrima;
+use App\Models\InventarioBodega;
+use App\Models\InventarioPlanta;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +37,17 @@ class CreateMateriaPrima extends CreateRecord
                 'id_materiaprima'   => $record->id,
             ]);
         }
+
+        InventarioBodega::create([
+            'id_materia_prima' => $record->id,
+            'cantidad'         => 0,
+        ]);
+
+        InventarioPlanta::create([
+            'id_materia_prima' => $record->id,
+            'cantidad'         => 0,
+        ]);
+
 
         return $record;
     }
