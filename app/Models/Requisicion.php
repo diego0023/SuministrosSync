@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrdenAlmacenamiento extends Model
+class Requisicion extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id_materia_prima',
         'id_usuario',
-        'fecha_recepcion',
+        'fecha_pedido',
+        'fecha_entrega',
         'cantidad',
         'evaluada',
-        'aprobada',
+        'denegada',
     ];
 
     public function user()
@@ -28,8 +29,8 @@ class OrdenAlmacenamiento extends Model
         return $this->belongsTo(MateriaPrima::class, 'id_materia_prima');
     }
 
-    public function ordenalmacenamiento()
+    public function historialrequisicion()
     {
-        return $this->hasMany(HistorialOrdenAlmacenamiento::class, 'id_orden_almacenamientos');
+        return $this->hasMany(HistorialRequisicion::class, 'id_requisicion');
     }
 }
