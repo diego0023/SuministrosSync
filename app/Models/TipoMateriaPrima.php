@@ -9,9 +9,9 @@ class TipoMateriaPrima extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre', 
+        'nombre',
     ];
     public function materiaPrima(){
-        return $this->belogsTo(MateriaPrima::class);
+        return $this->hasMany(MateriaPrima::class);
     }
 }

@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
@@ -20,6 +21,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Repeater;
+use Filament\Tables\Filters\SelectFilter;
 use PhpParser\Node\Stmt\Label;
 
 class MateriaPrimaResource extends Resource
@@ -110,13 +112,18 @@ class MateriaPrimaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nombre')->label('Nombre'),
+                TextColumn::make('nombre')->label('Nombre')->searchable(),
                 TextColumn::make('precio_unidad')->label('Precio por unidad (Q)'),
                 TextColumn::make('lugar_almacenamiento')->label('Lugar de almacenamineto'),
                 TextColumn::make('descripcion')->html()->label('Descripción'),
+                TextColumn::make('id_tipo')->label('Tipo')->getStateUsing(function (Model $record): string {
+                    return TipoMateriaPrima::find($record->id_tipo)->nombre;
+                }),
             ])
             ->filters([
-                //
+                SelectFilter::make('id_tipo')
+                ->options(TipoMateriaPrima::all()->pluck('nombre', 'id'))
+                ->label('Buscar por tipo'),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
@@ -145,4 +152,5 @@ class MateriaPrimaResource extends Resource
             'edit' => Pages\EditMateriaPrima::route('/{record}/edit'),
         ];
     }
+
 }

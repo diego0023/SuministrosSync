@@ -19,8 +19,8 @@ class MateriaPrima extends Model
     public function proveedores() {
         return $this->hasMany(Proveedor::class);
     }
-    public function tipos() {
-        return $this->hasMany(TipoMateriaPrima::class);
+    public function tipo() {
+        return $this->belogsTo(TipoMateriaPrima::class);
     }
     public function caracteristicas(){
         return $this->belongsToMany(CaracteristicaMateriaPrima::class, 'caracteristica_materias');
