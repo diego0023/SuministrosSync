@@ -37,7 +37,7 @@ class OrdenAlmacenamientoResource extends Resource
                         Select::make('id_materia_prima')
                             ->searchable()
                             ->required()
-                            ->label('Materia Prima') 
+                            ->label('Materia Prima')
                             ->options(TipoMateriaPrima::all()->pluck('nombre', 'id'))
                             ->createOptionForm([
                                 Forms\Components\TextInput::make('nombre')
@@ -46,7 +46,7 @@ class OrdenAlmacenamientoResource extends Resource
                             ])
                             ->createOptionUsing(function ($data) {
                                 return TipoMateriaPrima::create($data)->getKey();
-                            }), 
+                            }),
                         Select::make('id_usuario')
                             ->searchable()
                             ->required()
@@ -83,27 +83,29 @@ class OrdenAlmacenamientoResource extends Resource
                 TextColumn::make('id_usuario')->label('id_usuario'),
                 TextColumn::make('fecha_recepcion')->label('fecha_entrega'),
                 TextColumn::make('cantidad')->label('cantidad'),
-                ToggleColumn::make('evaluada')->label('evaluada')->onColor('success'),
-                ToggleColumn::make('aprobada')->label('aprobada')->onColor('success'),
+                //TextColumn::make('evaluada')->label('evaluada'),
+                //TextColumn::make('aprobada')->label('aprobada'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->label('Evaluar'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -111,5 +113,5 @@ class OrdenAlmacenamientoResource extends Resource
             'create' => Pages\CreateOrdenAlmacenamiento::route('/create'),
             'edit' => Pages\EditOrdenAlmacenamiento::route('/{record}/edit'),
         ];
-    }    
+    }
 }

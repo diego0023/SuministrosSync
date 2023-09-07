@@ -16,4 +16,7 @@ class ListOrdenAlmacenamientos extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+
+
+
 }
