@@ -49,21 +49,21 @@ class ProveedorResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(''),
+                Tables\Actions\DeleteAction::make()->label(''),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -71,5 +71,5 @@ class ProveedorResource extends Resource
             'create' => Pages\CreateProveedor::route('/create'),
             'edit' => Pages\EditProveedor::route('/{record}/edit'),
         ];
-    }    
+    }
 }
