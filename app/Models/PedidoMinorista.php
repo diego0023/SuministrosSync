@@ -10,10 +10,11 @@ class PedidoMinorista extends Model
     use HasFactory;
     protected $fillable = [
         'id_producto',
-        'cantidad', 
+        'cantidad',
         'total',
         'tienda',
         'fecha',
+        'procesado',
     ];
 
     public function producto(){

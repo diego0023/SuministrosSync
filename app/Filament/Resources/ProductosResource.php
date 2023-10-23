@@ -20,7 +20,10 @@ class ProductosResource extends Resource
 {
     protected static ?string $model = Producto::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
+
+    protected static ?string $navigationLabel = 'Productos';
+    protected static ?string $navigationGroup = 'Fabrica';
 
     public static function form(Form $form): Form
     {
@@ -53,14 +56,14 @@ class ProductosResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -68,5 +71,5 @@ class ProductosResource extends Resource
             'create' => Pages\CreateProductos::route('/create'),
             'edit' => Pages\EditProductos::route('/{record}/edit'),
         ];
-    }    
+    }
 }
