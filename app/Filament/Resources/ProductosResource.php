@@ -29,21 +29,21 @@ class ProductosResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nombre'),
-                RichEditor::make('descripcion'),
-                TextInput::make('preciounidad'),
-                TextInput::make('cantidadencaja'),
-            ]);
+                TextInput::make('nombre')->label('Nombre'),
+                RichEditor::make('descripcion')->label('Descripción'),
+                TextInput::make('preciounidad')->label('Precio Unitario'),
+                TextInput::make('cantidadencaja')->label('Cantidad'),
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('nombre'),
-                TextColumn::make('descripcion')->html(),
-                TextColumn::make('preciounidad'),
-                TextColumn::make('cantidadencaja'),
+                TextColumn::make('nombre')->label('Nombre'),
+                TextColumn::make('descripcion')->html()->label('Descripción'),
+                TextColumn::make('preciounidad')->label('Precio Unitario'),
+                TextColumn::make('cantidadencaja')->label('Cantidad'),
             ])
             ->filters([
                 //
