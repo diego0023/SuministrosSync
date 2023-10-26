@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
+    protected $connection = 'mysql';
     protected $fillable = [
         'nombre',
         'descripcion',
