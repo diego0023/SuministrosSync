@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->float('total');
             $table->string('tienda');
-            $table->dateTime('fecha');
+            $table->string('fecha');
             $table->boolean('procesado');
             $table->timestamps();
         });

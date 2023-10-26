@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\FirstComponent;
+use App\Http\Livewire\VistaExterna;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/admin');
+
+Route::get('/findticket', VistaExterna::class)->name('find.tickets');
+
+Route::get('/pedido', FirstComponent::class);
+
+
+
